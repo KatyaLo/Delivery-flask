@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}<title>Рассчет ЗП</title>{% endblock title %}
+
+{% block nav %}
+    <nav>
+{% endblock nav %}
+
+{% block form %}
+    <form action="" method="POST" class="vertical_form">
+        {{ form_courier.csrf_token }}
+        <div class="label">
+            {{ form_courier.courier.label }}
+            {{ form_courier.courier(size=32, list="courier_data", id="courier") }}
+            {% if courier %}
+            <span display=d>{{ form_courier.courier.data }} заработал {{ courier }} рублей</span>
+            {% endif %}
+            <datalist id="courier_data">
+                {% for courier in courier_data %}
+                    <option value="{{ courier.name }}"></option>
+                {% endfor %}
+            </datalist>
+        </div>
+
+        {{ form_courier.submit(class="submit") }}
+    </form>
+    <br>
+    <form action="" method="POST" class="vertical_form">
+        {{ form_service.csrf_token }}
+        <div class="label">
+            {{ form_service.service.label }}
+            {{ form_service.service(size=32, list="service_data", id="service") }}
+            {% if service %}
+            <span display=d>{{ form_service.service.data }} заработал {{ service }} рублей</span>
+            {% endif %}
+            <datalist id="service_data">
+                {% for service in service_data %}
+                    <option value="{{ service.name }}"></option>
+                {% endfor %}
+            </datalist>
+        </div>
+
+        {{ form_service.submit(class="submit") }}
+    </form>
+{% endblock form %}

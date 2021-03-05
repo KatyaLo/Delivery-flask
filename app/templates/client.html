@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}<title>Новый клиент</title>{% endblock title %}
+
+{% block nav %}
+    <nav>
+{% endblock nav %}
+
+{% block form %}
+    <form action="" method="POST" class="block_form">
+        {{ form.csrf_token }}
+        <div class="label small_label">
+            {{ form.username.label }}
+            {{ form.username(id="username", placeholder="Иванов Иван Иванович") }}
+        </div>
+        <div class="label small_label">
+            {{ form.phone.label }}
+            {{ form.phone(id="phone", placeholder="+7 999 999-99-99", type="tel") }}
+        </div>
+        <div class="label">
+            {{ form.service.label }}
+            {{ form.service(size=32, list="service_data", id="service") }}
+            <datalist id="service_data">
+                {% for service in service_data %}
+                    <option value="{{ service.name }}"></option>
+                {% endfor %}
+            </datalist>
+        </div>
+        <div class="label small_label">
+            {{ form.station.label }}
+            {{ form.station(id="station", placeholder="Комсомольская (11)") }}
+        </div>
+        <div class="label small_label">
+            {{ form.cost.label }}
+            {{ form.cost(id="cost", type="number", placeholder="350", min="350", max="850") }}
+        </div>
+        <div class="label">
+            {{ form.about.label }}
+            {{ form.about(id="about", rows="7") }}
+        </div>
+
+        {{ form.submit(class="submit") }}
+    </form>
+{% endblock form %}

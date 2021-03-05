@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}<title>Новый курьер</title>{% endblock title %}
+
+{% block nav %}
+    <nav>
+{% endblock nav %}
+
+{% block form %}
+    <form action="" method="POST" class="vertical_form">
+        {{ form.csrf_token }}
+        <div class="label">
+            {{ form.username.label }}
+            {{ form.username(id="username", placeholder="Иванов Иван Иванович") }}
+        </div>
+
+        <div class="label">
+            {{ form.phone.label }}
+            {{ form.phone(id="phone", placeholder="+7 999 999-99-99", type="tel") }}
+        </div>
+
+        {{ form.submit(class="submit") }}
+    </form>
+{% endblock form %}

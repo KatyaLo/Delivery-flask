@@ -1,0 +1,146 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
+}
+.header {
+    background-color: #f4f4f4;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    font-size: calc(10px + 2vmin);
+    color: #1a1c20;
+    flex-direction: column;
+    justify-content: center;
+}
+  
+nav {
+	width: 100%;
+	height: auto;
+	
+	display: flex;
+	justify-content: space-around;
+
+	position: absolute;
+	top: 0;
+
+	background-color: #ffce00;
+	box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+}
+
+.link {
+	width: auto;
+	height: auto;
+	padding: 13px 0;
+	font-size: 14px;
+
+	text-decoration: none;
+	color: #000;
+
+	text-align: center;
+}
+
+.submit {
+	-webkit-appearance: none;
+	max-width: 390px;
+	width: 100%;
+	height: 40px;
+	font-size: 16px;
+	padding: 5px 40px;
+	margin: auto;
+
+	border: none;
+	background-color: #ffce00;
+	box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+	font-weight: 600;
+}
+
+form {
+	display: flex;
+	align-items: left;
+}
+
+.vertical_form {
+	flex-direction: column;
+	/*flex-wrap: wrap;*/
+	width: 290px;
+}
+
+.block_form {
+	width: 800px;
+	flex-wrap: wrap;
+	align-content: flex-start;
+	justify-content: space-between;
+}
+
+hr {
+	width: 100%;
+	background-color: #ffce00;
+}
+
+.label {
+	font-size: 13px;
+	margin-bottom: 15px;
+	width: 100%;
+}
+input, textarea {
+	-webkit-appearance: none;
+	appearance: none;
+	outline: none;
+	display: inline-block;
+	box-sizing: border-box;
+
+	width: 100%;
+	height: 40px;
+	font-size: 13px;
+
+	padding: 5px;
+	padding-left: 10px;
+	margin-top: 2px;
+
+	border: 2px solid #ffce00;
+	border-radius: 3px;
+}
+textarea {
+	display: block;
+	height: auto;
+	resize: none;
+}
+
+.label>span {
+	display: block;
+	margin: 10px 0;
+	text-align: center;
+	font-size: 14px;
+}
+
+.small_label {
+	width: calc(50% - 30px);
+	display: block;
+}
+
+.history_line {
+	width: 80%;
+	max-width: 800px;
+}
+.history_title {
+	font-size: 18px;
+}
+.info {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	font-size: 16px;
+	border: 2px solid #ffce00;
+	padding: 10px;
+}
+
+@media (print) {
+	nav {
+		display: none;
+	}
+}

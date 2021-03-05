@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}{% endblock title %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="header">
+        {% block nav %}{% endblock %}
+        <!-- <nav display={{ display }}> -->
+            <a href="{{ url_for('delivery') }}" class="link">Новая доставка</a>
+            <a href="{{ url_for('client') }}" class="link">Добавить клиента</a>
+            <a href="{{ url_for('courier') }}" class="link">Добавить курьера</a>
+            <a href="{{ url_for('salary') }}" class="link">Расчет ЗП</a>
+            <a href="{{ url_for('history') }}" class="link">История</a>
+            <a href="{{ url_for('logout') }}" class="link">Выйти</a>
+        </nav>
+
+        {% block form %}{% endblock %}
+
+    </header>
+</body>
+</html>

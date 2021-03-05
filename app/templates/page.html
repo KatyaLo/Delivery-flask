@@ -1,0 +1,114 @@
+
+{% extends "base.html" %}
+
+{% block title %}
+    <title>Путевой лист</title>
+
+    <style>
+        body {
+            width: 100%;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto';
+        }
+        table {
+            width: 80%;
+            max-width: 600px;
+        }
+        th, td {
+            width: 70%;
+            height: 30px;
+            text-align: right;
+            padding: 5px;
+        }
+        th {
+            font-size: 20px;
+            border-bottom: 2px solid #ffce00;
+        }
+        td {
+            font-size: 15px;
+            font-weight: 300;
+            border-bottom: 1px solid #ffce00;
+        }
+        .line {
+            border-top: 2px dashed #000;
+            width: 100%;
+            margin: 20px 0;
+        }
+        .f {
+            width: 30%;
+            text-align: left;
+        }
+    </style>
+{% endblock title %}
+
+{% block nav %}
+    <nav>
+{% endblock nav %}
+
+{% block form %}
+    <table>
+        <tr>
+            <th class="f">Дата</th>
+            <th style="text-align: right;">Сумма</th>
+        </tr>
+        <tr>
+            <td class="f">{{ delivery.delivery_time.strftime('%d.%m.%Yг') }}
+                <br>
+                {{ delivery.delivery_time.strftime('%R') }}
+            </td>
+            <td style="text-align: right;">{{ delivery.delivery_cost + delivery.client.cost }}</td>
+        </tr>
+        <tr>
+            <th class="f">Клиент</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td class="f">Имя: </td>
+            <td>{{ delivery.client.name }}</td>
+        </tr>
+        <tr>
+            <td class="f">Номер телефона: </td>
+            <td>{{ delivery.client.tel }}</td>
+        </tr>
+        <tr>
+            <td class="f">Станция метро: </td>
+            <td>{{ delivery.client.metro }}</td>
+        </tr>
+        <tr>
+            <td class="f">Номер выхода: </td>
+            <td>{{ delivery.client.exit_num }}</td>
+        </tr>
+        <tr>
+            <td class="f">Сервис: </td>
+            <td>{{ delivery.client.service_to_client.name }}</td>
+        </tr>
+        <tr>
+            <td class="f">Описание маршрута: </td>
+            <td>{{ delivery.client.info }}</td>
+        </tr>
+        <tr>
+            <td style="border: none;" class="f">Подпись менеджера: </td>
+            <td style="border: none;"></td>
+        </tr>
+    </table>
+
+    <div class="line"></div>
+
+    <table class="small_table">
+        <tr>
+            <td class="f">{{ delivery.delivery_time.strftime('%d.%m.%Yг') }}
+                <br>
+                {{ delivery.delivery_time.strftime('%R') }}</td>
+            <td>Заказ №{{ delivery.delivery_num}}</td>
+        </tr>
+        <tr>
+            <td class="f">Курьер:</td>
+            <td>{{ delivery.courier.name }}</td>
+        </tr>
+        <tr>
+            <td style="border: none;" class="f">Подпись курьера:</td>
+            <td style="border: none;"></td>
+        </tr>
+    </table>
+{% endblock form %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}<title>История</title>{% endblock title %}
+
+{% block nav %}
+    <nav>
+{% endblock nav %}
+
+{% block form %}
+
+    {% for delivery in deliveries[::-1] %}
+        
+        <div class="history_line">
+            <h2 class="history_title">Заказ {{ delivery.delivery_num }}</h2>
+            <div class="info">
+                <span style="font-weight: bold;">Дата заказа: {{ delivery.delivery_time.strftime('%d.%m.%Yг') }}</span>
+                <span>Время заказа: {{ delivery.delivery_time.strftime('%R') }}</span>
+                <span>Клиент: {{ delivery.client.name }}</span>
+                <span>Курьер: {{ delivery.courier.name }}</span>
+                <span style="align-self: flex-end;">Стоимость заказа: {{ delivery.delivery_cost }}</span>
+                <span style="align-self: flex-end;">Стоимость доставки: {{ delivery.client.cost }}</span>
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock form %}

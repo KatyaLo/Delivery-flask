@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}<title>Новая доставка</title>{% endblock title %}
+
+{% block nav %}
+    <nav>
+{% endblock nav %}
+
+{% block form %}
+    <form action="" method="POST" class="block_form">
+        {{ form.csrf_token }}
+        <div class="label small_label" >
+            {{ form.number.label }}
+            {{ form.number(id="number", type="number") }}
+        </div>
+        <div class="label small_label">
+            {{ form.cost.label }}
+            {{ form.cost(id="cost", type="number") }}
+        </div>
+
+        <div class="label small_label">
+            {{ form.client.label }}
+            {{ form.client(id="client", type="text", list="client_data") }}
+            <datalist id="client_data">
+                {% for client in client_data %}
+                    <option value="{{ client.name }}"></option>
+                {% endfor %}
+            </datalist>
+        </div>
+
+        <div class="label small_label">
+            {{ form.courier.label }}
+            {{ form.courier(id="courier", type="text", list="courier_data") }}
+            <datalist id="courier_data">
+                {% for courier in courier_data %}
+                    <option value="{{ courier.name }}"></option>
+                {% endfor %}
+            </datalist>
+        </div>
+
+        {{ form.submit(class="submit") }}
+    </form>
+{% endblock form %}

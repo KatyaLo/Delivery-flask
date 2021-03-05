@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block nav %}
+    <nav style="display: none">
+{% endblock nav %}
+
+{% block title %}<title>Вход</title>{% endblock title %}
+
+{% block form %}
+    <form action="" method="post" class="vertical_form">
+        {{ form.csrf_token }}
+        
+        <div class="label">
+            {{ form.username.label }}
+            {{ form.username(size=32, list="login_data", id="username") }}
+            <datalist id="login_data"> 
+                {% for user in login_data %}
+                    <option value="{{ user.username }}"></option>
+                {% endfor %}
+            </datalist>
+        </div>
+
+        <div class="label">
+            {{ form.password.label }}
+            {{ form.password(size=32, id="password") }}
+        </div>
+
+        {{ form.submit(class="submit") }}
+    </form>
+{% endblock form %}
